@@ -1,0 +1,8 @@
+blueocean:1.27.17
+docker-workflow:611.v16e84da_6d3ff
+token-macro:444.v52de7e9c573d
+json-path-api:2.9.0-138.vc943da_d833b_6
+github:1.43.0
+git:5.7.0
+github-branch-source:1815.v9152b_2ff7a_1b_
+favorite:2.225.v68765b_b_a_1fa_3
