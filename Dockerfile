@@ -2,6 +2,7 @@ FROM jenkins/jenkins:lts
 
 USER root
 
+# Install Docker
 RUN apt-get update && apt-get install -y lsb-release python3-pip
 
 RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
@@ -14,7 +15,12 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 
 RUN apt-get update && apt-get install -y docker-ce-cli
 
+# Docker outside of Docker Config, change 987 to match Docker GID in Host Machine
+RUN groupadd -g 987 docker
+RUN usermod -aG docker jenkins
+
 USER jenkins
 
+# Install plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt

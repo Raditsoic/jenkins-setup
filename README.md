@@ -1,8 +1,17 @@
-# Jenkins Setup
+# Jenkins Docker outside of Docker Setup
+
+This setup makes building container happens outside jenkins container (host machine) for one machine setup.
 
 ## Clone Project
 ```bash
 git clone raditsoic/jenkins-setup
+```
+
+## Match Host Docker GID with Jenkins Dockerfile
+
+Get Docker GID on Host Machine then change the GID in the Dockerfile
+```bash
+getent group docker | cut -d: -f3
 ```
 
 ## Build Jenkins Image
